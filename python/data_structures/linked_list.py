@@ -73,4 +73,5 @@ class Node:
         self.next = next_
 
 
-class TargetError: pass
+class TargetError(Exception):
+    pass
