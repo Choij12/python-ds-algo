@@ -59,6 +59,19 @@ class LinkedList:
                 raise TargetError
             current = current.next
 
+    def kth_from_end(self, index):
+        idx = []
+        current = self.head
+        while current:
+            idx.append(current.value)
+            current = current.next
+        idx.reverse()
+        if index >= len(idx):
+            raise TargetError
+        if index < 0:
+            raise TargetError
+        return idx[index]
+
     def includes(self, query):
         current = self.head
         while current:
