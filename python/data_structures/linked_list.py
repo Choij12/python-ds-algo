@@ -60,17 +60,17 @@ class LinkedList:
             current = current.next
 
     def kth_from_end(self, index):
-        idx_archive = []
+        idx = []
         current = self.head
         while current:
-            idx_archive.append(current.value)
+            idx.append(current.value)
             current = current.next
-        idx_archive.reverse()
-        if index >= len(idx_archive):
+        idx.reverse()
+        if index >= len(idx):
             raise TargetError
         if index < 0:
             raise TargetError
-        return idx_archive[index]
+        return idx[index]
 
     def includes(self, query):
         current = self.head
