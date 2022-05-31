@@ -7,8 +7,7 @@ from data_structures.queue import Queue
 def test_exists():
     assert tree_intersection
 
-
-# @pytest.mark.skip("TODO")
+@pytest.mark.skip("TODO")
 def test_tree_intersection():
 
     tree_a = BinaryTree()
@@ -24,7 +23,7 @@ def test_tree_intersection():
 
     assert sorted(actual) == sorted(expected)
 
-
+@pytest.mark.skip("TODO")
 def add_values_to_empty_tree(tree, values):
     """
     Helper function to add given values to BinaryTree
@@ -40,3 +39,4 @@ def add_values_to_empty_tree(tree, values):
         node.right = Node(values.pop()) if values else None
         q.enqueue(node.left)
         q.enqueue(node.right)
+
