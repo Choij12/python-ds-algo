@@ -1,36 +1,29 @@
 import pytest
 from code_challenges.hashtable_left_join import left_join
 
-
 def test_exists():
     assert left_join
 
+def test_left_join():
+    synonyms = {'happy': 'joy'}
 
-@pytest.mark.skip("TODO")
-def test_example():
-    synonyms = {
-        "diligent": "employed",
-        "fond": "enamored",
-        "guide": "usher",
-        "outfit": "garb",
-        "wrath": "anger",
-    }
-    antonyms = {
-        "diligent": "idle",
-        "fond": "averse",
-        "guide": "follow",
-        "flow": "jam",
-        "wrath": "delight",
-    }
+    antonyms = {'happy': 'mad'}
 
-    expected = [
-        ["fond", "enamored", "averse"],
-        ["wrath", "anger", "delight"],
-        ["diligent", "employed", "idle"],
-        ["outfit", "garb", "NONE"],
-        ["guide", "usher", "follow"],
-    ]
+    assert left_join(synonyms, antonyms) == ['happy', 'joy', 'mad']
 
-    actual = left_join(synonyms, antonyms)
+def test_left_join1():
+    synonyms = {'happy': 'joy','scared':'afraid'}
 
-    assert actual == expected
+    antonyms = {'happy': 'mad','scared':'brave'}
+
+    assert left_join(synonyms, antonyms) == ['happy', 'joy', 'mad',
+                                             'scared', 'afraid', 'brave']
+
+def test_left_join_with_none():
+    synonyms = {'happy': 'joy','scared':'afraid','sad':'cry'}
+
+    antonyms = {'happy': 'mad','scared':'brave'}
+
+    assert left_join(synonyms, antonyms) == ['happy', 'joy', 'mad',
+                                             'scared', 'afraid', 'brave',
+                                             'sad', 'cry', None]
